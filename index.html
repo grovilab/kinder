@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>어린이집 준비물 체크리스트</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 상단 타이틀 영역 -->
+    <header class="header">
+      <h1>🧸 어린이집 준비물 체크리스트</h1>
+      <p class="subtitle">공지사항을 붙여넣으면 준비물을 자동으로 정리해줘요</p>
+    </header>
+
+    <!-- 공지사항 입력 카드 -->
+    <section class="card">
+      <label for="noticeInput" class="card-label">📋 어린이집 공지사항 붙여넣기</label>
+      <textarea
+        id="noticeInput"
+        placeholder="예) 내일은 물놀이를 합니다. 수영복과 수건을 챙겨주세요. 오후엔 미술 활동도 있어요."
+      ></textarea>
+
+      <div class="button-row">
+        <button id="generateBtn" class="btn btn-primary">✨ 준비물 생성</button>
+        <button id="resetBtn" class="btn btn-secondary">🔄 초기화</button>
+      </div>
+    </section>
+
+    <!-- 진행률 + 체크리스트 영역 (태블릿/데스크탑에서는 2단 그리드로 배치) -->
+    <div class="result-grid">
+      <!-- 진행률 카드 -->
+      <section class="card progress-card">
+        <div class="progress-info">
+          <span class="progress-label">오늘의 준비 진행률</span>
+          <span id="progressPercent" class="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+        <p id="completeMessage" class="complete-message hidden">🎉 등원 준비 완료! 🎉</p>
+      </section>
+
+      <!-- 체크리스트 카드 -->
+      <section class="card checklist-card">
+        <h2 class="checklist-title">✅ 준비물 체크리스트</h2>
+        <ul id="checklist" class="checklist">
+          <!-- 체크리스트 항목이 JS로 동적 생성됩니다 -->
+        </ul>
+        <p id="emptyMessage" class="empty-message">아직 준비물이 없어요. 공지사항을 입력하고 생성해보세요!</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
